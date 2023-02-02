@@ -1,0 +1,119 @@
+<html>
+{% load staticfiles %}
+<head>
+<script>
+window.onload=function fo()
+{
+document.getElementById("txt1").focus();
+}
+function validate()
+{
+ if(document.getElementById("txt1").value=="")
+ {
+ alert("Please enter user name");
+ document.getElementById("txt1").focus();
+ return false;
+  }
+else if(document.getElementById("pass1").value=="")
+ {
+ alert("Enter your password");
+ document.getElementById("pass1").focus();
+ return false;
+  }
+else
+{
+document.getElementById("myform").submit();
+}
+}
+</script>
+<style>
+#footer{
+text-align:center;
+padding:5px;
+position:fixed;
+bottom:0;
+width:100%;
+height:8%;
+background-color:#5AB9EA;
+}
+#body{
+position:fixed;
+text-align:center;
+top:13%;
+bottom:10%;
+background:#1f1c32;
+width:100%;
+height:84%;
+}
+#header{
+padding:5px;
+position:fixed;
+top:0%;
+width:100%;
+height:13%;
+background-color:5AB9EA;
+display:in-line;
+}
+a{
+font-size:26px;
+}
+body{
+margin:4px;
+}
+table{border:2px double white;
+border-radius:0px 40px;
+font-family:lucida calligraphy;
+font-size:25px;
+color:white;
+}
+.button{font-size:20px;
+margin:0px 10px;
+border-radius:40px 40px 40px 40px;
+}
+a:hover{
+color:white;
+background-color:blue;
+font-size:30px;
+border:3px solid white;
+border-radius:45px;
+padding:3px
+}
+
+
+</style>
+</head>
+<body>
+<div id="header"> 
+<img src="{% static 'img/d.jpg' %}"  height="75px" width="75px" align="left" >
+<p align="right">
+<a href="index"><b>Home</b></a>
+<a href="register"><b>Register_</b></a>
+</p>
+</div>
+<div id="body">
+<form id="myform" name="myform" action="loginvalidate" method="GET">
+<table width="20px" cellspacing="20px" cellpadding="10px" align="center">
+<caption style="color:white"><h3><u>Login</u></h3></caption>
+<tr>
+<td>
+<label>User Name</label></td>
+<td><input type="text" name="txt1" id="txt1" placeholder="Enter the name"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="pass1" id="pass1" placeholder="Enter password"></td>
+</tr>
+<tr>
+<td><input type="button" class="button" name="button" onclick="validate()">Login</button></td>
+<td><input type="button" class="button" onclick="clr();">Reset</button></td>
+</tr>
+<tr>
+<td>{{errormsg}}</td>
+</tr>
+</table>
+</form> 
+<div id="footer">
+<a href="#" align="center">@copiright</a>
+</div>
+</body>
+</html>
